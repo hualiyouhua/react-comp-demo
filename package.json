@@ -7,9 +7,10 @@
   "author": "",
   "main": "index.js",
   "scripts": {
-    "dev": "dumi dev", 
+    "dev": "dumi dev",
     "build:site": "rimraf doc-site && dumi build",
-    "preview:site": "npm run build:site && serve doc-site" 
+    "preview:site": "cross-env SITE_BUILD_ENV=PREVIEW npm run build:site && serve doc-site",
+    "deploy:site": "npm run build:site && gh-pages -d doc-site"
   },
   "husky": {
     "hooks": {
@@ -34,8 +35,10 @@
     "@types/react-dom": "^18.0.5",
     "@umijs/fabric": "^2.12.0",
     "commitizen": "^4.2.4",
+    "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
     "dumi": "^1.1.42",
+    "gh-pages": "^4.0.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "react": "^18.2.0",
